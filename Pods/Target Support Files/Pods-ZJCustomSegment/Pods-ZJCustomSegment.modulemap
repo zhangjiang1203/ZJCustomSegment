@@ -1,0 +1,6 @@
+framework module Pods_ZJCustomSegment {
+  umbrella header "Pods-ZJCustomSegment-umbrella.h"
+
+  export *
+  module * { export * }
+}

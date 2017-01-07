@@ -13,9 +13,13 @@
 		CF443D5B1E2133E8005FE8F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF443D591E2133E8005FE8F8 /* Main.storyboard */; };
 		CF443D5D1E2133E8005FE8F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF443D5C1E2133E8005FE8F8 /* Assets.xcassets */; };
 		CF443D601E2133E8005FE8F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF443D5E1E2133E8005FE8F8 /* LaunchScreen.storyboard */; };
+		CF443D691E213404005FE8F8 /* ZJSegmentControl.m in Sources */ = {isa = PBXBuildFile; fileRef = CF443D681E213404005FE8F8 /* ZJSegmentControl.m */; };
+		F47C9A53B399671C23D25E66 /* Pods_ZJCustomSegment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D73013254707A7E304647C3 /* Pods_ZJCustomSegment.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2D73013254707A7E304647C3 /* Pods_ZJCustomSegment.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZJCustomSegment.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5CB057ACF572346B18EC1E9D /* Pods-ZJCustomSegment.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZJCustomSegment.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZJCustomSegment/Pods-ZJCustomSegment.debug.xcconfig"; sourceTree = "<group>"; };
 		CF443D4D1E2133E8005FE8F8 /* ZJCustomSegment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZJCustomSegment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF443D511E2133E8005FE8F8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CF443D531E2133E8005FE8F8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -26,6 +30,9 @@
 		CF443D5C1E2133E8005FE8F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CF443D5F1E2133E8005FE8F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CF443D611E2133E8005FE8F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CF443D671E213404005FE8F8 /* ZJSegmentControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJSegmentControl.h; sourceTree = "<group>"; };
+		CF443D681E213404005FE8F8 /* ZJSegmentControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJSegmentControl.m; sourceTree = "<group>"; };
+		D419D53D25A4B68E24DC6FBD /* Pods-ZJCustomSegment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZJCustomSegment.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZJCustomSegment/Pods-ZJCustomSegment.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +40,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F47C9A53B399671C23D25E66 /* Pods_ZJCustomSegment.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CF2281D20FDF6D00268700BA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5CB057ACF572346B18EC1E9D /* Pods-ZJCustomSegment.debug.xcconfig */,
+				D419D53D25A4B68E24DC6FBD /* Pods-ZJCustomSegment.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		CF443D441E2133E8005FE8F8 = {
 			isa = PBXGroup;
 			children = (
 				CF443D4F1E2133E8005FE8F8 /* ZJCustomSegment */,
 				CF443D4E1E2133E8005FE8F8 /* Products */,
+				CF2281D20FDF6D00268700BA /* Pods */,
+				D719830E107989AF65DC88F9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,6 +77,8 @@
 		CF443D4F1E2133E8005FE8F8 /* ZJCustomSegment */ = {
 			isa = PBXGroup;
 			children = (
+				CF443D671E213404005FE8F8 /* ZJSegmentControl.h */,
+				CF443D681E213404005FE8F8 /* ZJSegmentControl.m */,
 				CF443D531E2133E8005FE8F8 /* AppDelegate.h */,
 				CF443D541E2133E8005FE8F8 /* AppDelegate.m */,
 				CF443D561E2133E8005FE8F8 /* ViewController.h */,
@@ -79,6 +100,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		D719830E107989AF65DC88F9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2D73013254707A7E304647C3 /* Pods_ZJCustomSegment.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -86,9 +115,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CF443D641E2133E8005FE8F8 /* Build configuration list for PBXNativeTarget "ZJCustomSegment" */;
 			buildPhases = (
+				0167B55747D58B64266484AD /* [CP] Check Pods Manifest.lock */,
 				CF443D491E2133E8005FE8F8 /* Sources */,
 				CF443D4A1E2133E8005FE8F8 /* Frameworks */,
 				CF443D4B1E2133E8005FE8F8 /* Resources */,
+				35FB97E8A941338EFC6CADE5 /* [CP] Embed Pods Frameworks */,
+				6F4F456EA52F9DB9AA3A64F8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -146,12 +178,61 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0167B55747D58B64266484AD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		35FB97E8A941338EFC6CADE5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ZJCustomSegment/Pods-ZJCustomSegment-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6F4F456EA52F9DB9AA3A64F8 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ZJCustomSegment/Pods-ZJCustomSegment-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		CF443D491E2133E8005FE8F8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				CF443D581E2133E8005FE8F8 /* ViewController.m in Sources */,
+				CF443D691E213404005FE8F8 /* ZJSegmentControl.m in Sources */,
 				CF443D551E2133E8005FE8F8 /* AppDelegate.m in Sources */,
 				CF443D521E2133E8005FE8F8 /* main.m in Sources */,
 			);
@@ -269,6 +350,7 @@
 		};
 		CF443D651E2133E8005FE8F8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5CB057ACF572346B18EC1E9D /* Pods-ZJCustomSegment.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = N3DR39B4G7;
@@ -281,6 +363,7 @@
 		};
 		CF443D661E2133E8005FE8F8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D419D53D25A4B68E24DC6FBD /* Pods-ZJCustomSegment.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = N3DR39B4G7;
