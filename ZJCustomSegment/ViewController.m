@@ -18,9 +18,9 @@
 
 @property (strong,nonatomic)iCarousel *myCarousel;
 
-@property (nonatomic,strong)NSArray *titlesArr;
+@property (nonatomic,strong)NSArray<NSString*> *titlesArr;
 
-@property (nonatomic,strong)NSArray *colorsArr;
+@property (nonatomic,strong)NSArray<UIColor*> *colorsArr;
 @end
 
 @implementation ViewController
