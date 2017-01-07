@@ -1,0 +1,2 @@
+# ZJCustomSegment
+自定义的一个segmentControl 文字切换的时候有视觉差动画
