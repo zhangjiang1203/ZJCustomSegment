@@ -14,7 +14,6 @@
 		CF443D5D1E2133E8005FE8F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF443D5C1E2133E8005FE8F8 /* Assets.xcassets */; };
 		CF443D601E2133E8005FE8F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF443D5E1E2133E8005FE8F8 /* LaunchScreen.storyboard */; };
 		CF443D691E213404005FE8F8 /* ZJSegmentControl.m in Sources */ = {isa = PBXBuildFile; fileRef = CF443D681E213404005FE8F8 /* ZJSegmentControl.m */; };
-		CF443D6B1E214E23005FE8F8 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = CF443D6A1E214E23005FE8F8 /* README.md */; };
 		CF443D701E225DB3005FE8F8 /* visionDifferenceGif.gif in Resources */ = {isa = PBXBuildFile; fileRef = CF443D6F1E225DB3005FE8F8 /* visionDifferenceGif.gif */; };
 		CF443D731E2261C9005FE8F8 /* firstPage.png in Resources */ = {isa = PBXBuildFile; fileRef = CF443D711E2261C9005FE8F8 /* firstPage.png */; };
 		CF443D741E2261C9005FE8F8 /* secondPage.png in Resources */ = {isa = PBXBuildFile; fileRef = CF443D721E2261C9005FE8F8 /* secondPage.png */; };
@@ -36,7 +35,6 @@
 		CF443D611E2133E8005FE8F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CF443D671E213404005FE8F8 /* ZJSegmentControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJSegmentControl.h; sourceTree = "<group>"; };
 		CF443D681E213404005FE8F8 /* ZJSegmentControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJSegmentControl.m; sourceTree = "<group>"; };
-		CF443D6A1E214E23005FE8F8 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		CF443D6F1E225DB3005FE8F8 /* visionDifferenceGif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = visionDifferenceGif.gif; sourceTree = "<group>"; };
 		CF443D711E2261C9005FE8F8 /* firstPage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = firstPage.png; sourceTree = "<group>"; };
 		CF443D721E2261C9005FE8F8 /* secondPage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = secondPage.png; sourceTree = "<group>"; };
@@ -106,7 +104,6 @@
 				CF443D711E2261C9005FE8F8 /* firstPage.png */,
 				CF443D721E2261C9005FE8F8 /* secondPage.png */,
 				CF443D6F1E225DB3005FE8F8 /* visionDifferenceGif.gif */,
-				CF443D6A1E214E23005FE8F8 /* README.md */,
 				CF443D511E2133E8005FE8F8 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -248,7 +245,6 @@
 			files = (
 				CF443D581E2133E8005FE8F8 /* ViewController.m in Sources */,
 				CF443D691E213404005FE8F8 /* ZJSegmentControl.m in Sources */,
-				CF443D6B1E214E23005FE8F8 /* README.md in Sources */,
 				CF443D551E2133E8005FE8F8 /* AppDelegate.m in Sources */,
 				CF443D521E2133E8005FE8F8 /* main.m in Sources */,
 			);
