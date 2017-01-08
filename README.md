@@ -14,8 +14,9 @@
 ##最上面还有一层button 我没有放在这个上面 这个只是为了点击改变当前的第二层和第三层的相对位置
 
 开始计算相对位置，开始的时候第二层的frame是(0, 0, width/count, self.frame.size.height)]; 第三层的frame是(0, 0, self.frame.size.width, self.frame.size.height)];
+
 ![segmentControl](https://github.com/zhangjiang1203/ZJCustomSegment/blob/master/ZJCustomSegment/firstPage.png "segmentControl")
 
-　点击第二个按钮后，我们要改变两者的位置关系如下，第三层这时的frame就是(- self.viewWidth, 0, self.viewHeight, self.viewHeight); 
-，可见orgin.x改变了，是一个负值，通过这种改变，可以造成一种第二层view在第三层保持不动的情况下左右移动的错觉。
+　点击第二个按钮后，我们要改变两者的位置关系如下，第三层这时的frame就是(- self.viewWidth, 0, self.viewHeight, self.viewHeight); orgin.x改变了，是一个负值，通过这种改变，可以造成一种第二层view在第三层保持不动的情况下左右移动的错觉。
+
 ![segmentControl](https://github.com/zhangjiang1203/ZJCustomSegment/blob/master/ZJCustomSegment/secondPage.png "segmentControl")
