@@ -17,6 +17,7 @@
 		CF443D701E225DB3005FE8F8 /* visionDifferenceGif.gif in Resources */ = {isa = PBXBuildFile; fileRef = CF443D6F1E225DB3005FE8F8 /* visionDifferenceGif.gif */; };
 		CF443D731E2261C9005FE8F8 /* firstPage.png in Resources */ = {isa = PBXBuildFile; fileRef = CF443D711E2261C9005FE8F8 /* firstPage.png */; };
 		CF443D741E2261C9005FE8F8 /* secondPage.png in Resources */ = {isa = PBXBuildFile; fileRef = CF443D721E2261C9005FE8F8 /* secondPage.png */; };
+		CF443D761E22698D005FE8F8 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = CF443D751E22698D005FE8F8 /* README.md */; };
 		F47C9A53B399671C23D25E66 /* Pods_ZJCustomSegment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D73013254707A7E304647C3 /* Pods_ZJCustomSegment.framework */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +39,7 @@
 		CF443D6F1E225DB3005FE8F8 /* visionDifferenceGif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = visionDifferenceGif.gif; sourceTree = "<group>"; };
 		CF443D711E2261C9005FE8F8 /* firstPage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = firstPage.png; sourceTree = "<group>"; };
 		CF443D721E2261C9005FE8F8 /* secondPage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = secondPage.png; sourceTree = "<group>"; };
+		CF443D751E22698D005FE8F8 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		D419D53D25A4B68E24DC6FBD /* Pods-ZJCustomSegment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZJCustomSegment.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZJCustomSegment/Pods-ZJCustomSegment.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -83,6 +85,7 @@
 		CF443D4F1E2133E8005FE8F8 /* ZJCustomSegment */ = {
 			isa = PBXGroup;
 			children = (
+				CF443D751E22698D005FE8F8 /* README.md */,
 				CF443D671E213404005FE8F8 /* ZJSegmentControl.h */,
 				CF443D681E213404005FE8F8 /* ZJSegmentControl.m */,
 				CF443D531E2133E8005FE8F8 /* AppDelegate.h */,
@@ -245,6 +248,7 @@
 			files = (
 				CF443D581E2133E8005FE8F8 /* ViewController.m in Sources */,
 				CF443D691E213404005FE8F8 /* ZJSegmentControl.m in Sources */,
+				CF443D761E22698D005FE8F8 /* README.md in Sources */,
 				CF443D551E2133E8005FE8F8 /* AppDelegate.m in Sources */,
 				CF443D521E2133E8005FE8F8 /* main.m in Sources */,
 			);
