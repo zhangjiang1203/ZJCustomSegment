@@ -9,7 +9,7 @@
 #import "ZJSegmentControl.h"
 
 #define KTAG 10
-#define KANIMATION 0.75
+#define KANIMATION 0.5
 @interface ZJSegmentControl ()<UIScrollViewDelegate>
 {
     NSInteger maxWidth;
@@ -26,9 +26,9 @@
 
 @property (strong,nonatomic)NSArray<NSString*> *titlesArr;
 
-@property (copy,nonatomic)SegmentBlock clickBlock;
-
 @property (strong,nonatomic)UILabel *lineLabel;
+
+@property (strong,nonatomic)UIButton *selectedBtn;
 
 @end
 
@@ -55,8 +55,7 @@
 }
 
 -(instancetype)initWithFrame:(CGRect)frame
-                      titles:(NSArray<NSString*>*)titles
-                      action:(SegmentBlock)clickBlock{
+                      titles:(NSArray<NSString*>*)titles{
     self = [super initWithFrame:frame];
     if (self) {
         self.titleNorColor = [UIColor colorWithRed:51/255.0 green:51/255.0 blue:51/255.0 alpha:1];
@@ -64,7 +63,6 @@
         self.isShowLineLabel = YES;
         self.fontSize = 14;
         self.titlesArr = titles;
-        self.clickBlock = clickBlock;
         [self setUpMyScrollView];
     }
     return self;
@@ -77,7 +75,7 @@
     self.myScrollView.delegate = self;
     self.myScrollView.showsVerticalScrollIndicator = NO;
     self.myScrollView.showsHorizontalScrollIndicator = NO;
-    self.myScrollView.bounces = NO;
+    self.myScrollView.bounces = YES;
     [self addSubview:self.myScrollView];
     
     //计算当前所有标题的最大长度
@@ -95,7 +93,7 @@
     }];
     maxWidth = maxWidth*widthArr.count > viewWidth?maxWidth:(viewWidth/widthArr.count);
     CGFloat contentWidth = maxWidth*widthArr.count;
-    _myScrollView.contentSize = CGSizeMake(contentWidth, viewHeight);
+    _myScrollView.contentSize = CGSizeMake(contentWidth, 0);
     
     //初始化三个显示的视图
     self.bottomView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, contentWidth, viewHeight)];
@@ -128,7 +126,10 @@
 
         UIButton *titleBtn = [[UIButton alloc]initWithFrame:CGRectMake(idx*maxWidth, 0, maxWidth, viewHeight)];
         titleBtn.tag = idx + KTAG;
-//        titleBtn.backgroundColor = [UIColor redColor];
+//        titleBtn.titleLabel.font = [UIFont systemFontOfSize:self.fontSize];
+//        [titleBtn setTitle:obj forState:UIControlStateNormal];
+//        [titleBtn setTitleColor:self.titleNorColor forState:UIControlStateNormal];
+//        [titleBtn setTitleColor:self.titleSelColor forState:UIControlStateSelected];
         [titleBtn addTarget:self action:@selector(titleButtonClickAction:) forControlEvents:UIControlEventTouchUpInside];
         [_myScrollView addSubview:titleBtn];
     }];
@@ -146,6 +147,11 @@
 }
 
 -(void)titleButtonClickAction:(UIButton*)sender{
+    
+    self.selectedBtn.selected = NO;
+    sender.selected = YES;
+    self.selectedBtn = sender;
+    
     CGRect lineRect = self.lineLabel.frame;
     lineRect.origin.x = maxWidth*(sender.tag-KTAG);
     
@@ -162,7 +168,7 @@
         self.lineLabel.frame = lineRect;
     }];
     [self setScrollOffset:sender.tag];
-    self.clickBlock?self.clickBlock(sender.tag-KTAG):nil;
+    self.segmentBlock?self.segmentBlock(sender.tag-KTAG):nil;
     
 }
 

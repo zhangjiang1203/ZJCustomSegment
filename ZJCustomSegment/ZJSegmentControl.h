@@ -33,9 +33,11 @@ typedef void(^SegmentBlock)(NSInteger clickTag);
 @property (assign,nonatomic)CGFloat fontSize;
 
 
+@property (nonatomic,copy)SegmentBlock segmentBlock;
+
+
 -(instancetype)initWithFrame:(CGRect)frame
-                      titles:(NSArray<NSString*>*)titles
-                      action:(SegmentBlock)clickBlock;
+                      titles:(NSArray<NSString*>*)titles;
 
 
 /**

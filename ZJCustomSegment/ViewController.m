@@ -9,7 +9,6 @@
 #import "ViewController.h"
 #import "ZJSegmentControl.h"
 #import "iCarousel.h"
-
 #define KRGB(r,g,b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1]
 
 @interface ViewController ()<iCarouselDelegate,iCarouselDataSource>
@@ -31,13 +30,7 @@
     _colorsArr = @[KRGB(23, 200,0),KRGB(120, 0, 3),KRGB(0, 79, 100),KRGB(10, 200, 20),KRGB(100, 0, 200),KRGB(100, 18, 80),KRGB(200, 49, 1)];
     CGFloat width = [UIScreen mainScreen].bounds.size.width;
     CGFloat height = self.view.frame.size.height;
-    _zjControl = [[ZJSegmentControl alloc]initWithFrame:CGRectMake(0, 64, width, 40) titles:_titlesArr action:^(NSInteger clickTag){
-        [_myCarousel scrollToItemAtIndex:clickTag animated:YES];
-    }];
-    _zjControl.isShowLineLabel = NO;
-    _zjControl.titleSelColor = [UIColor magentaColor];
-    [self.view addSubview:_zjControl];
-    
+
     _myCarousel = [[iCarousel alloc]initWithFrame:CGRectMake(0, 104, width, height-64-40)];
     _myCarousel.dataSource = self;
     _myCarousel.delegate = self;
@@ -45,9 +38,21 @@
     _myCarousel.type = iCarouselTypeCoverFlow;
     _myCarousel.decelerationRate = 0.75;
     _myCarousel.pagingEnabled = YES;
-
+    
     [self.view addSubview:_myCarousel];
+    
+    __weak typeof(_myCarousel) weakMyCarousel = _myCarousel;
+    _zjControl = [[ZJSegmentControl alloc]initWithFrame:CGRectMake(0, 64, width, 40) titles:_titlesArr];
+    _zjControl.isShowLineLabel = NO;
+    _zjControl.fontSize = 14;
+    _zjControl.titleSelColor = [UIColor magentaColor];
+    _zjControl.segmentBlock = ^(NSInteger index){
+        //animated设置为NO，否侧会重复执行
+        [weakMyCarousel scrollToItemAtIndex:index animated:NO];
+        NSLog(@"开始点击的视图===%zd",index);
+    };
 
+    [self.view addSubview:_zjControl];
 }
 
 
@@ -80,7 +85,9 @@
 - (void)carouselDidEndScrollingAnimation:(iCarousel *)carousel{
 
     NSLog(@"开始滑动了===%zd",carousel.currentItemIndex);
-    [_zjControl setSegmentMoveToIndex:carousel.currentItemIndex];
+    if (_zjControl) {
+        [_zjControl setSegmentMoveToIndex:carousel.currentItemIndex];
+    }
 }
 
 @end
