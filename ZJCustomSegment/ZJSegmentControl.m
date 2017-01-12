@@ -10,6 +10,8 @@
 
 #define KTAG 10
 #define KANIMATION 0.5
+#define KDefaultNorColor [UIColor colorWithRed:51/255.0 green:51/255.0 blue:51/255.0 alpha:1]
+#define KDefaultSelColor [UIColor colorWithRed:1 green:0 blue:0 alpha:1]
 @interface ZJSegmentControl ()<UIScrollViewDelegate>
 {
     NSInteger maxWidth;
@@ -24,7 +26,6 @@
 
 @property (strong,nonatomic)UIScrollView *myScrollView;
 
-@property (strong,nonatomic)NSArray<NSString*> *titlesArr;
 
 @property (strong,nonatomic)UILabel *lineLabel;
 
@@ -58,33 +59,39 @@
                       titles:(NSArray<NSString*>*)titles{
     self = [super initWithFrame:frame];
     if (self) {
-        self.titleNorColor = [UIColor colorWithRed:51/255.0 green:51/255.0 blue:51/255.0 alpha:1];
-        self.titleSelColor = [UIColor colorWithRed:1 green:0 blue:0 alpha:1];
+        self.titleNorColor = KDefaultNorColor;
+        self.titleSelColor = KDefaultSelColor;
         self.isShowLineLabel = YES;
         self.fontSize = 14;
-        self.titlesArr = titles;
         [self setUpMyScrollView];
+        if (titles.count) {
+            self.titlesArr = titles;
+            [self setMyTitleData];
+        }
     }
     return self;
 }
 
 -(void)setUpMyScrollView{
-    CGFloat viewHeight = self.bounds.size.height;
-    CGFloat viewWidth = self.bounds.size.width;
+    
     self.myScrollView = [[UIScrollView alloc]initWithFrame:self.bounds];
     self.myScrollView.delegate = self;
     self.myScrollView.showsVerticalScrollIndicator = NO;
     self.myScrollView.showsHorizontalScrollIndicator = NO;
     self.myScrollView.bounces = YES;
     [self addSubview:self.myScrollView];
-    
+}
+
+-(void)setMyTitleData{
+    CGFloat viewHeight = self.bounds.size.height;
+    CGFloat viewWidth = self.bounds.size.width;
     //计算当前所有标题的最大长度
     NSMutableArray *widthArr = [NSMutableArray array];
     [self.titlesArr enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         CGFloat height = [self getSuitSizeWidthWithString:obj fontSize:14 height:viewHeight];
         [widthArr addObject:@(height)];
     }];
-    
+
     //拿出标题最大的宽度
     [widthArr enumerateObjectsUsingBlock:^(NSNumber*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if (maxWidth < [obj integerValue]) {
@@ -103,13 +110,13 @@
     [self.myScrollView addSubview:self.centerView];
     self.topView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, contentWidth, viewHeight)];
     [self.centerView addSubview:self.topView];
-
+    
     
     //添加按钮
     __weak typeof(self) weakSelf = self;
     [self.titlesArr enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         
-        //添加文字标签
+//        //添加文字标签
         UILabel *bottomLabel = [[UILabel alloc]initWithFrame:CGRectMake(idx*maxWidth, 0, maxWidth, viewHeight)];
         bottomLabel.textAlignment = NSTextAlignmentCenter;
         bottomLabel.text = obj;
@@ -123,22 +130,43 @@
         topLabel.font = [UIFont systemFontOfSize:weakSelf.fontSize];
         topLabel.textColor = weakSelf.titleSelColor;
         [weakSelf.topView addSubview:topLabel];
-
+        
         UIButton *titleBtn = [[UIButton alloc]initWithFrame:CGRectMake(idx*maxWidth, 0, maxWidth, viewHeight)];
         titleBtn.tag = idx + KTAG;
-//        titleBtn.titleLabel.font = [UIFont systemFontOfSize:self.fontSize];
-//        [titleBtn setTitle:obj forState:UIControlStateNormal];
-//        [titleBtn setTitleColor:self.titleNorColor forState:UIControlStateNormal];
-//        [titleBtn setTitleColor:self.titleSelColor forState:UIControlStateSelected];
+//                titleBtn.titleLabel.font = [UIFont systemFontOfSize:self.fontSize];
+//                [titleBtn setTitle:obj forState:UIControlStateNormal];
+//                [titleBtn setTitleColor:self.titleNorColor forState:UIControlStateNormal];
+//                [titleBtn setTitleColor:self.titleSelColor forState:UIControlStateSelected];
         [titleBtn addTarget:self action:@selector(titleButtonClickAction:) forControlEvents:UIControlEventTouchUpInside];
         [_myScrollView addSubview:titleBtn];
     }];
     //默认选中第一个
     [self titleButtonClickAction:[self viewWithTag:KTAG]];
     
-    self.lineLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, viewHeight-1, maxWidth, 1)];
-    self.lineLabel.backgroundColor = self.titleSelColor;
-    [self.myScrollView addSubview:self.lineLabel];
+//    self.lineLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, viewHeight-1, maxWidth, 1)];
+//    self.lineLabel.backgroundColor = self.titleSelColor;
+//    self.lineLabel.hidden = !self.isShowLineLabel;
+//    [self.myScrollView addSubview:self.lineLabel];
+
+}
+
+-(void)setTitlesArr:(NSArray<NSString *> *)titlesArr{
+    _titlesArr = titlesArr;
+    //按钮全部移除 在添加
+    [self.bottomView.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [obj removeFromSuperview];
+    }];
+    [self.topView.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [obj removeFromSuperview];
+    }];
+    [self.myScrollView.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([obj isKindOfClass:[UIButton class]]) {
+            [obj removeFromSuperview];
+        }
+    }];
+    [self.lineLabel removeFromSuperview];
+    
+    [self setMyTitleData];
 }
 
 -(void)setIsShowLineLabel:(BOOL)isShowLineLabel{
@@ -165,7 +193,7 @@
     [UIView animateWithDuration:KANIMATION animations:^{
         self.centerView.frame = centerRect;
         self.topView.frame = topRect;
-        self.lineLabel.frame = lineRect;
+//        self.lineLabel.frame = lineRect;
     }];
     [self setScrollOffset:sender.tag];
     self.segmentBlock?self.segmentBlock(sender.tag-KTAG):nil;

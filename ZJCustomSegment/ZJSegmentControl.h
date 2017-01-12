@@ -28,6 +28,11 @@ typedef void(^SegmentBlock)(NSInteger clickTag);
 @property (nonatomic,strong)UIColor *titleSelColor;
 
 /**
+ 添加的标题数组
+ */
+@property (nonatomic,strong)NSArray<NSString*> *titlesArr;
+
+/**
  字体大小
  */
 @property (assign,nonatomic)CGFloat fontSize;

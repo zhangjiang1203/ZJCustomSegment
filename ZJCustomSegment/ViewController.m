@@ -42,17 +42,16 @@
     [self.view addSubview:_myCarousel];
     
     __weak typeof(_myCarousel) weakMyCarousel = _myCarousel;
-    _zjControl = [[ZJSegmentControl alloc]initWithFrame:CGRectMake(0, 64, width, 40) titles:_titlesArr];
-    _zjControl.isShowLineLabel = NO;
-    _zjControl.fontSize = 14;
+    _zjControl = [[ZJSegmentControl alloc]initWithFrame:CGRectMake(0, 64, width, 40) titles:nil];
+    _zjControl.titlesArr = _titlesArr;
+    _zjControl.titleNorColor = [UIColor blackColor];
     _zjControl.titleSelColor = [UIColor magentaColor];
-    _zjControl.segmentBlock = ^(NSInteger index){
-        //animated设置为NO，否侧会重复执行
-        [weakMyCarousel scrollToItemAtIndex:index animated:NO];
-        NSLog(@"开始点击的视图===%zd",index);
-    };
-
+    _zjControl.isShowLineLabel = YES;
     [self.view addSubview:_zjControl];
+
+    _zjControl.segmentBlock = ^(NSInteger index){
+        [weakMyCarousel scrollToItemAtIndex:index animated:NO];
+    };
 }
 
 
